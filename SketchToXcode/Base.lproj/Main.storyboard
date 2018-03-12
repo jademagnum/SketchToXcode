@@ -12,11 +12,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SketchToXcode" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="SketchToXcode" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -24,6 +24,13 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DAO-c9-Yzj">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="284.33333333333331"/>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ePR-YR-OM6">
+                                <rect key="frame" x="-1" y="285" width="375.33333333333331" height="3"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="3" id="IQ8-Rp-eY9"/>
+                                </constraints>
+                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qut-1z-odU">
                                 <rect key="frame" x="112" y="234" width="150" height="150"/>
                                 <constraints>
@@ -50,26 +57,40 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TJY-fN-EuI">
                                 <rect key="frame" x="121.33333333333333" y="550" width="131.33333333333337" height="30"/>
                                 <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="loginButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qQM-d4-5Mn"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="DAO-c9-Yzj" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="6bI-3p-6JJ"/>
                             <constraint firstItem="DAO-c9-Yzj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MEm-pW-nqv"/>
+                            <constraint firstItem="ePR-YR-OM6" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="NQu-ck-mPO"/>
                             <constraint firstItem="qut-1z-odU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="112" id="P09-Ti-Bx5"/>
                             <constraint firstItem="TJY-fN-EuI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="P1L-uP-Qpg"/>
                             <constraint firstItem="TJY-fN-EuI" firstAttribute="top" secondItem="Sn5-e1-Qc9" secondAttribute="bottom" constant="38" id="PvL-Qg-xwW"/>
                             <constraint firstItem="DAO-c9-Yzj" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.35" id="QoJ-wS-w1W"/>
                             <constraint firstItem="TJY-fN-EuI" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.35" id="S77-bZ-g5z"/>
+                            <constraint firstItem="ePR-YR-OM6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="SzE-sK-NQC"/>
                             <constraint firstItem="qut-1z-odU" firstAttribute="top" secondItem="DAO-c9-Yzj" secondAttribute="bottom" constant="-50.333333333333314" id="ZCY-0S-b0s"/>
                             <constraint firstItem="Sn5-e1-Qc9" firstAttribute="top" secondItem="qut-1z-odU" secondAttribute="bottom" constant="50" id="ZZy-if-OSi"/>
                             <constraint firstItem="qut-1z-odU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="d4G-Ty-Mf5"/>
+                            <constraint firstItem="ePR-YR-OM6" firstAttribute="top" secondItem="DAO-c9-Yzj" secondAttribute="bottom" constant="1" id="sJY-nT-bnu"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="DAO-c9-Yzj" secondAttribute="top" constant="44" id="uBp-E3-Q3R"/>
                             <constraint firstItem="Sn5-e1-Qc9" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="vnd-B0-yZz"/>
                             <constraint firstItem="Sn5-e1-Qc9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zVY-HE-nRW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="aboutMeLabel" destination="cO5-dG-Sng" id="gMa-Nl-rzH"/>
+                        <outlet property="headerImageView" destination="DAO-c9-Yzj" id="oyV-s4-H2q"/>
+                        <outlet property="lineView" destination="ePR-YR-OM6" id="Jpf-un-zIJ"/>
+                        <outlet property="loginButton" destination="TJY-fN-EuI" id="oaW-9b-oQJ"/>
+                        <outlet property="profileImageView" destination="qut-1z-odU" id="9cm-BZ-8Rv"/>
+                        <outlet property="usernameLabel" destination="5sJ-NI-bcu" id="8Tg-ca-0Ak"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="33.251231527093594"/>
